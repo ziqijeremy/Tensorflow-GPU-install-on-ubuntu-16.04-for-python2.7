@@ -87,8 +87,8 @@ source ~/.bashrc
 
 7. Install miniconda   
 ``` bash
-wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh   
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+bash Miniconda2-latest-Linux-x86_64.sh   
 
 # press s to skip terms   
 
@@ -111,7 +111,7 @@ source ~/.bashrc
 
 9. Create conda env to install tf   
 ``` bash
-conda create -n tensorflow
+conda create -n tensorflow python=2.7
 
 # press y a few times 
 ```   
@@ -121,10 +121,10 @@ conda create -n tensorflow
 source activate tensorflow   
 ```
 
-11. Install tensorflow with GPU support for python 3.6    
+11. Install tensorflow with GPU support for python 2.7    
 ``` bash
 # pip install --ignore-installed --upgrade aTFUrl
-pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.2.0-cp36-cp36m-linux_x86_64.whl
+pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1-cp27-none-linux_x86_64.whl
 ```   
 
 12. Test tf install   
