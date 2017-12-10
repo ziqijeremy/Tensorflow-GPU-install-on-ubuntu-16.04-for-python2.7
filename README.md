@@ -14,7 +14,7 @@ sudo apt-get install openjdk-8-jdk git python-dev python3-dev python-numpy pytho
 ``` bash
 # The 16.04 installer works with 16.10.
 curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
-dpkg -i ./cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+sudo dpkg -i ./cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo apt-get update
 sudo apt-get install cuda -y
 ```  
@@ -63,13 +63,14 @@ sudo sh cuda_8.0.61_375.26_linux.run   # press and hold s to skip agreement
 # Finished copying samples.
 ```    
 
-4. Install cudnn   
+4. Install cudnn v6.0
 ``` bash
-wget https://s3.amazonaws.com/personal-waf/cudnn-8.0-linux-x64-v5.1.tgz   
-sudo tar -xzvf cudnn-8.0-linux-x64-v5.1.tgz   
-sudo cp cuda/include/cudnn.h /usr/local/cuda/include
-sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+CUDNN_TAR_FILE="cudnn-8.0-linux-x64-v6.0.tgz"
+wget http://developer.download.nvidia.com/compute/redist/cudnn/v6.0/${CUDNN_TAR_FILE}
+tar -xzvf ${CUDNN_TAR_FILE}
+sudo cp -P cuda/include/cudnn.h /usr/local/cuda-8.0/include
+sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-8.0/lib64/
+sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
 ```    
 
 5. Add these lines to end of ~/.bashrc:   
@@ -124,7 +125,7 @@ source activate tensorflow
 11. Install tensorflow with GPU support for python 2.7    
 ``` bash
 # pip install --ignore-installed --upgrade aTFUrl
-pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1-cp27-none-linux_x86_64.whl
+pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.4.0-cp27-none-linux_x86_64.whl
 ```   
 
 12. Test tf install   
