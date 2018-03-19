@@ -140,3 +140,9 @@ hello = tf.constant('Hello, TensorFlow!')
 sess = tf.Session()
 print(sess.run(hello))
 ```  
+
+if you want to import cv2
+```
+pip install opencv-python
+```
+
